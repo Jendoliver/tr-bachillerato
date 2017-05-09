@@ -1,0 +1,5 @@
+import bge
+cont = logic.getCurrentController()
+obj = cont.owner
+
+	

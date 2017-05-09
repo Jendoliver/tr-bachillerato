@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<head>
+<title>MouseMove Script - Instruction Manual</title>
+<style type="text/css">
+/* Class Styles */
+.topbutton{
+	font-size: small;
+	font-weight: normal;
+	text-decoration: none;
+}
+.code{
+	font-family: monospace;
+	background-color:#EEE;
+	padding:2px 10px 2px 10px;
+	white-space:pre;
+	margin-left: 5%;
+	margin-right: 5%;
+	font-size: 14px;
+}
+.documentation {
+	margin-right: 20px;
+	margin-left: 20px;
+}
+.documentation ul li{
+	list-style-type: none;
+}
+.documentation > ul > li {
+	background-color: #DDE;
+	color:#000;
+	font-size:16px;
+	border-radius:5px;
+	box-shadow:4px 4px 2px #CCC;
+	padding:10px;
+	margin-top:20px;
+}
+.documentation ul li ul li{
+	color:#333;
+	font-size:14px;
+}
+.aka{
+	font-family: monospace;
+	font-size: 14px;
+	
+	color: #6868B3;
+	
+	margin:0 20px 0 0;
+	float:right;
+	text-align:right;
+}
+
+/* Regular Element Styles */
+body {
+	/*background-color: #4E5869;*/
+	margin: 0;
+	padding: 0;
+	color: #000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 1.4;
+	background-color: #3C434F;
+}
+
+ul, ol, dl {
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+a img {
+	border: none;
+}
+
+a:link, a:visited, a:hover, a:active{
+	color:#6D9BB6;
+	text-decoration: none;
+	padding:1px 2px 1px 2px;
+}
+a:hover{
+	color: #CDE;
+	background-color: #5D8BB6;
+	box-shadow:2px 2px 3px #3D6B96;
+	border-radius:4px;
+}
+
+/* ID Styles */
+#container {
+	width: 70%;
+	max-width: 1260px;
+	min-width: 780px;
+	background-color: #FFF;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+}
+
+#header {
+	font-size: large;
+	font-weight: bold;
+	text-align: center;
+	background-color: #5E6C82;
+}
+
+#content {
+	padding: 10px 0;
+}
+
+#content ul, #content ol { 
+	padding: 0px 15px 15px 40px;
+}
+
+#footer {
+	padding: 10px 0;
+	text-align: center;
+	background-color: #5E6C82;
+}
+</style>
+</head>
+<body>
+<div id="container">
+	<div id="header">
+   	  <h2><a name="top" id="top"></a>MouseMove Script</h2>
+ 	</div>
+ 	<div id="content">
+    	<h2>Instruction Manual</h2>
+        <p><b>MouseMove</b> - A Mouselook &amp; Movement Script<br />
+          <b>Version</b>: 2.7<br />
+        <b>Released</b>: 3/19/2013</p>
+      <p>Made with <a href="http://www.blender.org/" target="_blank">Blender</a> 2.66.1 (<i>r55075:55077</i>)<br />
+        by <a href="http://riyuzakisan.weebly.com/" target="_blank"><b>Riyuzakisan</b></a> (<a href="mailto:riyuzakisan@gmail.com" target="_blank">riyuzakisan@gmail.com</a>)</p>
+<p>&nbsp;</p>
+        <p>Thanks for using my MouseMove script! This script is designed to be quick to set up and easy to customize. Its three main features are  Mouselook control and two Player movement systems.</p>
+        <p>See the <a href="#changelog">Changelog</a> for the latest changes. Also check the
+  <a href="http://riyuzakisan.weebly.com/mouselook-script.html" target="_blank">MouseMove Script</a> page on my website for or updates!</p>
+        <p>&nbsp;</p>
+        <p><b>Features included in this script:</b></p>
+        <ul>
+    <li>Mouselook system</li>
+            <li>Two Player Movement systems (Static and Dynamic)</li>
+			<li>Property Hooks - Easily customize how the script works by using Object Properties; No programming required!</li>
+			<li>Import, run, and change properties from inside your own script!</li>
+		</ul>
+		<p>&nbsp;</p>
+		<p>
+		<u><b><font size="3">Problems, Questions, and Suggestions:</font></b></u><br/>
+		Try posting in the <a href="http://blenderartists.org/forum/showthread.php?211127-MouseMove-FPS-Mouselook-amp-Movement-Script" target="_blank">MouseMove BlenderArtists thread</a>, or send me an email.</p>
+		<p>&nbsp;</p>
+<div id="instructions">
+<!--
+<style type="text/css">
+/* CSS for Weebly Page */
+#instructions{
+	font-size: 1em;
+	line-height: 1.5;
+	margin: 0;
+	padding: .5em 0;	
+}
+#instructions ul {
+   list-style-type: disc; 
+   list-style-position: outside;
+   
+   padding-left:25px;
+   margin:5px 0;
+}
+#instructions ol { 
+   list-style-type: decimal; 
+   list-style-position: outside; 
+   
+   padding-left:25px;
+   margin:5px 0;
+}
+#instructions ul ul, #instructions ol ul { 
+   list-style-type: disc; 
+   list-style-position: outside;
+   
+   margin-left: 20px;
+}
+#instructions ol ol, #instructions ul ol { 
+   list-style-type: decimal; 
+   list-style-position: outside; 
+   
+   margin-left: 20px;
+}
+
+/* Class Styles */
+.topbutton{
+	font-size: small;
+	font-weight: normal;
+	text-decoration: none;
+}
+.code{
+	font-family: monospace;
+	background-color:#EEE;
+	padding:2px 10px 2px 10px;
+	white-space:pre;
+	margin-left: 5%;
+	margin-right: 5%;
+	font-size: 14px;
+}
+.documentation {
+	margin-right: 20px;
+	margin-left: 20px;
+}
+.documentation ul li{
+	list-style-type: none;
+}
+.documentation > ul > li {
+	background-color: #DDE;
+    color:#000;
+	font-size:16px;
+	border-radius:5px;
+	box-shadow:4px 4px 2px #CCC;
+	padding:10px;
+	margin-top:20px;
+}
+.documentation ul li ul li{
+	color:#333;
+	font-size:14px;
+}
+.aka{
+	font-family: monospace;
+	font-size: 14px;
+	
+	color: #6868B3;
+	
+	margin:0 20px 0 0;
+	float:right;
+	text-align:right;
+}
+</style> -->
+        
+    <h2><a name="toc" id="toc"></a>Table of Contents</h2>
+		<ul>
+			<li><a href="#setup">Setup Instructions</a></li>
+			<li><a href="#import">Importing the Script (Advanced)</a></li>
+			<li><a href="#movement">Movement Systems</a>
+			<ul>
+				<li><a href="#static">Static Movement</a></li>
+				<li><a href="#dynamic">Dynamic Movement</a></li>
+			</ul>
+            </li>
+			<li><a href="#properties">Property Hooks</a>
+			  <ul>
+			    <li><a href="#mmc">Core</a></li>
+			    <li><a href="#ml">Mouselook</a></li>
+			    <li><a href="#sm">Static Movement</a></li>
+			    <li><a href="#dm">Dynamic Movement</a></li>
+		      </ul>
+			</li>
+			<li><a href="#methods">Class Methods</a></li>
+			<li><a href="#config">Config Properties</a></li>
+			<li><a href="#changelog">Changelog</a></li>
+		</ul>
+	  <p>&nbsp;</p>
+		<p>&nbsp;</p>
+	  <h2><a name="setup" id="setup"></a>Setup Instructions <span class="topbutton"><a href="#toc">[top]</a></span></h2>
+	  <ol>
+	    <li>Open or Paste the script in Blender's Text Editor and give it a good name</li>
+	    <ul>
+	      <li>Example: "mousemove.py"</li>
+	      <li>It is recommended to add ".py" to the end</li>
+	      <li>You may want to use the <i>Format &gt; Convert Whitespaces &gt; To Spaces</i> feature in the Text Editor. This will prevent any indentation related errors.</li>
+        </ul>
+	    <li>Select the Object you want to add the script to. This will be called the "<b><em>Script Object</em></b>" for the purpose of these instructions.</li>
+	    <li>In the Logic Editor, add an <b>Always</b> sensor and enable True level triggering [```]	    </li>
+	    <ul>
+	      <li>True level triggering on an Always sensor will update the script on every Logic tick.</li>
+        </ul>
+<li>Add a <b>Python</b> controller, and connect it with the <b>Always</b> sensor.</li>
+<li>Follow the Script Execution Mode or Module Execution Mode steps below.</li>
+	  </ol>
+<p><b><i>Note</i></b>: As of update 2.61, you can use any sensor to trigger the Python controller.</p>
+	  <p>&nbsp;</p>
+		<h3>Script Execution Mode</h3>
+		<p>Your <b>Python</b> controller should be set to Script mode by default. Click inside the Text box next to the Script button on the controller and select the MouseMove script from the list.		</p>
+		<table width="1%" align="center">
+	  <tr>
+				<td align="center"><img src="http://riyuzakisan.weebly.com/uploads/7/0/1/4/7014475/6922079_orig.png" width="571" height="95" alt="Minimal setup example" /></td>
+		  </tr>
+		</table>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+	  <h3>Module Execution Mode</h3>
+		<p><i>Recommended only for those who have experience with this method.</i></p>
+		<p>Module Execution mode requires your script to have ".py" at the end of its name. If your script name is "mousemove",  add ".py" at the end ( = "mousemove.py").</p>
+		<ol>
+      <li>Change the drop-down button on the <b>Python</b> controller from <b>Script</b> to <b>Module</b>.</li>
+			<li>Enter the script name into the Python controller. Instead of typing ".py" at the end, type ".main"
+			  <ul>
+			    <li>If your script name is "mousemove.py", you would enter "mousemove.main":<br>
+			      <table width="1%" border="0" align="center">
+			        <tr>
+			          <td align="center"><img src="http://riyuzakisan.weebly.com/uploads/7/0/1/4/7014475/1684502_orig.png" alt="Module setup example" width="571" height="95" /></td>
+		            </tr>
+		          </table>
+			    </li>
+			  </ul>
+			</li>
+      </ol>
+      <p>&nbsp;</p>
+      <p><b>Final Note:</b> For both Script and Module execution modes, the Mouselook feature is enabled by default. To disable it, add a Boolean property called "mmc.mouselook" and set it to False.</p>
+      <p>See the <a href="#properties">Property Hooks</a> section for information on how to enable and modify features of the script.</p>
+      <p>&nbsp;</p>
+	  <h2><a name="import" id="import"></a>Importing the  Script (Advanced) <span class="topbutton"><a href="#toc">[top]</a></span></h2>
+	  <p>For this part, I'll assume that you, the reader, are fairly familiar with using Python.</p>
+	  <ol>
+	    <li>Import the MouseMove script</li>
+	    <li>Create an instance of the "Core"
+class from the script:
+  <ul>
+	        <li>mousemove.<b>Core(<i>object</i><i></i>)</b></li>
+	        <li>The <i>object</i> parameter requires either a KX_GameObject or a SCA_PythonController object.
+	          <ul>
+	            <li><b>Note</b>: If <i>object</i> is a KX_GameObject, the Dynamic Movement system will not recognize any Collision or Ray sensors attached to the object for proper collision detection. Pass the SCA_PythonController object that has the sensors attached to it if you want proper collision detection.</li></ul></li></ul>
+	    </li>
+	    <li>Call the "main" method on your instance of the Core class to keep the script running</li>
+      </ol>
+	  <p>Example:</p>
+	  <div class="code">
+from bge import logic
+import mousemove
+
+class myGame:
+    def __init__(self, cont):
+        self.cont = cont
+        self.own = cont.owner
+        
+        # Create instance of MouseMove Core
+        self.mousemove = mousemove.Core(self.cont)
+        
+        # Add the Mouselook feature
+        self.mousemove.addMouselook()
+        
+    def main(self):
+        # Update MouseMove instance
+        self.mousemove.main()
+    
+    
+def main():
+    cont = logic.getCurrentController()
+    own = cont.owner
+    
+    if 'myGame' not in own:
+        own['myGame'] = myGame(cont)
+    else:
+        own['myGame'].main()
+      </div>
+	  <p>&nbsp;</p>
+	  <p>See the <a href="#methods">Callable Methods</a> section for information about the methods of the Core class.</p>
+	  <p>&nbsp;</p>
+	  <p>&nbsp; </p>
+	  <h2><a name="movement" id="movement"></a>Movement Systems <span class="topbutton"><a href="#toc">[top]</a></span></h2>
+	  <p>There are two  movement systems in this script. These systems are designed to be easy to set up and allow the player to  move through a scene. Each system contains its own Property Hooks, which are used to modify certain functions of the script.</p>
+	  <h3>&nbsp;</h3>
+		<h3><a name="static" id="static"></a>Static Movement <span class="topbutton"><a href="#toc">[top]</a></span></h3>
+	  <p>The Static Movement system is made for a non-parented Static object. This system will not work if the object is parented to another object, or if the object is not a Static physics type.</p>
+		<p>This movement system was designed for the Camera object to fly through a scene, but it will work with any static object. The default setting of the "<i>cameramode</i>" property puts foward movement along the <b>-Z</b> axis for optimal Camera movement, but disabling this property will set the forward axis to <b>+Y</b>.</p>
+	  <p><b>Setup:</b></p>
+      <ol>
+        <li>Follow the basic <a href="#setup">Setup instructions</a> if you haven't already</li>
+          <li>To enable this feature, add the following property to the script object:
+            <ul>
+              <li>"mmc.static"; Boolean type; Set to True</li>
+            </ul>
+          </li>
+        <li>For forward movement on the <b>+Y</b> axis, add: </li>
+          <ul>
+            <li>"sm.cameramode"; Boolean type; Set to False</li>
+          </ul>
+      </ol>
+      <table width="600" border="1" align="center">
+			<tr>
+				<th bgcolor="#CCCCCC" scope="col">Controls</th>
+				<th bgcolor="#CCCCCC" scope="col">Right Handed</th>
+				<th bgcolor="#CCCCCC" scope="col">Left Handed</th>
+	  </tr>
+			<tr>
+				<td width="50%" align="center" bgcolor="#EAEAEA"><b>Directional</b></td>
+				<td width="25%" align="center" bgcolor="#EAEAEA">W, S, A, D</td>
+				<td align="center" bgcolor="#EAEAEA">I, K, J, L</td>
+			</tr>
+			<tr>
+				<td align="center" bgcolor="#F0F0F0"><b>Fly Up</b></td>
+				<td colspan="2" align="center" bgcolor="#F0F0F0"><p>Space</p></td>
+			</tr>
+			<tr>
+				<td align="center" bgcolor="#EAEAEA"><b>Fly Down</b></td>
+				<td align="center" bgcolor="#EAEAEA">Left Ctrl</td>
+				<td align="center" bgcolor="#EAEAEA">Right Ctrl</td>
+			</tr>
+			<tr>
+				<td align="center" bgcolor="#F0F0F0"><b>Speed Up</b></td>
+				<td align="center" bgcolor="#F0F0F0">Left Shift</td>
+				<td align="center" bgcolor="#F0F0F0">Right Shift</td>
+			</tr>
+	  </table>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+	  <h3><a name="dynamic" id="dynamic"></a>Dynamic Movement <span class="topbutton"><a href="#toc">[top]</a></span></h3>
+	  <p>The Dynamic Movement system enables the user to interact with the physical world of the game engine using a dynamic physics-type object as a "body".</p>
+	  <p>Foward movement is along the <b>+Y</b> axis, so make sure your "body" object's original forward orientation is along the <b>+Y</b> axis. You can set the object's current rotation values as its origin rotation with <b>Ctrl + A &gt; Rotation</b> in the 3D viewport. Also ensure that your object is not scaled to negative values. This will invert movement in certain directions.</p>
+	  <p><b>Setup:</b></p>
+	  <ol>
+	    <li>Follow the basic <a href="#setup">Setup instructions</a> if you haven't already</li>
+	    <li>Make sure your object is set to <b>Dynamic</b> or <b>Rigid Body</b> in the Physics settings</li>
+	    <li>To enable this feature, add the following property:
+	      <ul>
+	        <li>"mmc.dynamic"; Boolean type; Set to True</li>
+          </ul>
+	    </li>
+      </ol>
+	  <p><b>Collision Detection:</b></p>
+	  <p>Collision Detection is optional, but will offer you realistic interaction with the world, such as not being able to jump while mid-air.</p>
+	  <ol>
+	    <li>Add a <b>Collision</b> sensor and a <b>Ray</b> sensor to your "body" object</li>
+	    <li>Connect the <b>Collision</b> and <b>Ray</b> sensors to the <b>Python</b> controller that uses this script
+	      <ul>
+	        <li>If you're working from within another script, using the Advanced Method, you can add an <b>AND</b> controller to the "body" object and connect the <b>Collision</b> and <b>Ray</b> sensors to it.</li>
+          </ul>
+	    </li>
+	    <li>Do <b>Not</b> modify any of the settings on the Collision and Ray sensors, except for the Property name text field. Modifying any other settings will prevent the sensors from being recognized by the script.</li>
+	  </ol>
+	  <p>&nbsp;</p>
+		<table width="600" border="1" align="center">
+			<tr>
+				<th bgcolor="#CCCCCC" scope="col">Controls</th>
+				<th bgcolor="#CCCCCC" scope="col">Right Handed</th>
+				<th bgcolor="#CCCCCC" scope="col">Left Handed</th>
+			</tr>
+			<tr>
+				<td width="50%" align="center" bgcolor="#EAEAEA"><b>Directional</b></td>
+				<td width="25%" align="center" bgcolor="#EAEAEA">W, S, A, D</td>
+				<td align="center" bgcolor="#EAEAEA">I, K, J, L</td>
+			</tr>
+			<tr bgcolor="#F0F0F0">
+				<td align="center"><b>Jump</b></td>
+				<td colspan="2" align="center"><p>Space</p></td>
+			</tr>
+			<tr>
+				<td align="center" bgcolor="#EAEAEA"><b>Crouch/Sneak</b></td>
+				<td align="center" bgcolor="#EAEAEA">Left Ctrl</td>
+				<td align="center" bgcolor="#EAEAEA">Right Ctrl</td>
+			</tr>
+			<tr bgcolor="#F0F0F0">
+				<td align="center"><b>Run</b></td>
+				<td align="center">Left Shift</td>
+				<td align="center">Right Shift</td>
+			</tr>
+		</table>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+	  <h2><a name="properties" id="properties"></a>Property Hooks <span class="topbutton"><a href="#toc">[top]</a></span></h2>
+	  <p>Property hooks are regular properties in the Logic Editor that can be added to the object using this script. They have unique names for easy identification, and provide values to the script to modify features in real-time from within the Game engine. Property hooks  can be easily controlled with logic bricks, which is especially helpful for non-programmers.</p>
+	  <p>Property hook names are case-<i>insensitive</i>, so capitalization <b>does not</b> matter. The Property hooks for each system of the script are listed below. Each property hook begins with a prefix unique to its system.</p>
+	  <p>&nbsp;</p>
+	  <h3><a name="mmc"></a>MouseMove Core Properties <span class="topbutton"><a href="#toc">[top]</a></span></h3>
+	  <p>All MouseMove Core property hooks begin with "<b>mmc.</b>", which stands for "MouseMove Core".</p>
+	  <div class="documentation">
+	    <ul>
+	      <li>mmc.<b>mouselook</b><span class="aka">previously "enable"</span>
+<ul>
+	          <li><b>Type</b>: <i>Boolean</i><br>
+                <b>Default Value</b>: True<br>
+Enable Mouselook feature</li>
+            </ul>
+	      </li>
+	      <li>mmc.<b>static</b><span class="aka">previously "lmove" </span>
+<ul>
+	          <li><b>Type</b>: <i>Boolean</i><br>
+                <b>Default Value</b>: False<br>
+Enable Static Movement feature</li>
+            </ul>
+	      </li>
+	      <li>mmc.<b>dynamic</b><span class="aka">previously "dmove" </span>
+<ul>
+	          <li><b>Type</b>: <i>Boolean</i><br>
+                <b>Default Value</b>: False<br>
+Enable Dynamic Movement feature</li>
+            </ul>
+	      </li>
+	      <li>mmc.<b>lefthanded</b><span class="aka">previously "layout" </span>
+<ul>
+	          <li><b>Type</b>: <i>Boolean</i><br>
+                <b>Default Value</b>: False<br>
+Enable key layout for left-handed users</li>
+            </ul>
+	      </li>
+	      <li>mmc.<b>cursor</b><span class="aka">previously "cursor"</span>
+	        <ul>
+	          
+	          <li><b>Type</b>: <i>Boolean</i><br>
+	            <b>Default Value</b>: None<br>
+	          Display the Mouse cursor. Set to None by default, so it won't interfere with other scripts that render the cursor.</li>
+            </ul>
+	      </li>
+        </ul>
+	  </div>
+	  <p>&nbsp;</p>
+	  <h3><a name="ml"></a>Mouselook Properties <span class="topbutton"><a href="#toc">[top]</a></span></h3>
+	  <p>All Mouselook property hooks begin with "<b>ml.</b>", which stands for "Mouselook".</p>
+	  <div class="documentation">
+	    <ul>
+	      <li>ml.<b>sensitivity</b><span class="aka">previously "adjust" </span>
+<ul>
+	          <li><b>Type</b>: <i>Number</i><br>
+                <b>Default Value</b>: 2<br>
+Mouselook sensitivity</li>
+            </ul>
+          </li>
+	      <li>ml.<b>invert</b><span class="aka">previously "invert"</span>
+            <ul><li><b>Type</b>: <i>Boolean</i><br>
+                <b>Default Value</b>: False<br>
+Inverts the mouse movement</li>
+            </ul>
+	      </li>
+	      <li>ml.<b>inherit</b><span class="aka">previously "useparent"</span>
+	        <ul>
+	          <li><b>Type</b>: <i>Boolean</i><br>
+                <b>Default Value</b>: True<br>
+Parent object inherits Left/Right rotation</li>
+            </ul>
+	      </li>
+	      <li>ml.<b>cap</b><span class="aka">previously "enable"</span>
+	        <ul>
+	          <li><b>Type</b>: <i>Boolean</i><br>
+                <b>Default Value</b>: False<br>
+Enable capping of Up/Down rotation</li>
+            </ul>
+	      </li>
+	      <li>ml.<b>capupper</b>
+	        <ul>
+	          <li><b>Type</b>:<i> Number</i><br>
+                <b>Default Value</b>: 80<br>
+Upper cap limit</li>
+            </ul>
+	      </li>
+	      <li>ml.<b>caplower</b>
+	        <ul>
+	          <li><b>Type</b>:<i> Number</i><br>
+                <b>Default Value</b>: -80<br>
+Lower cap limit</li>
+            </ul>
+	      </li>
+	      <li>ml.<b>caporigin</b>
+	        <ul>
+	          <li>
+	              <b>Type</b>: <i>Number</i><br>
+	              <b>Default Value</b>: 90<br>
+	              Defines the "original" forward facing rotation on the X axis.<br>
+	              The cap range is calculated from the <i>caporigin</i> + <i>caplower</i> and <i>caporigin</i> + <i>capupper</i>
+	          </li>
+	          <li>Default value is set to 90 for Cameras that are rotated upwards on the X axis<br>
+              Set to 0 for objects with unmodified orientations.
+              </li>
+            </ul>
+	      </li>
+        </ul>
+      </div>
+	  <p>&nbsp;</p>
+	  <h3><a name="sm"></a>Static Movement Properties <span class="topbutton"><a href="#toc">[top]</a></span></h3>
+	  <p>All Static Movement property hooks begin with "<b>sm.</b>", which stands for "Static Movement".</p>
+	  <div class="documentation">
+	    <ul>
+	      <li>sm.<b>speed</b><span class="aka">previously "lspeed"</span>
+	        <ul>
+	          <li><b>Type</b>: <i>Number</i><br>
+                <b>Default Value</b>: 0.1<br>
+Regular speed of the player, in Blender Units</li>
+          </ul>
+	    </li>
+	      <li>sm.<b>cameramode</b>
+	        <ul>
+	          <li><b>Type</b>: <i>Boolean</i><br>
+                <b>Default Value</b>: True<br>
+Determines the "forward" axis of the object for movement.<br>
+True: -Z axis is forward (for Cameras)<br>
+False: +Y axis is forward </li>
+            </ul>
+	      </li>
+        </ul>
+	  </div>
+	  <p>&nbsp;</p>
+	  <h3><a name="dm"></a>Dynamic Movement Properties <span class="topbutton"><a href="#toc">[top]</a></span></h3>
+	  <p>All Dynamic Movement property hooks begin with "<b>dm.</b>", which stands for "Dynamic Movement".</p>
+	  <div class="documentation">
+	    <ul>
+	      <li>dm.<b>speed</b><span class="aka">previously "dspeed"</span>
+	        <ul>
+	          <li><b>Type</b>: <i>Number</i><br>
+                <b>Default Value</b>: 8<br>
+Regular speed of the player, in Linear Velocity.</li></ul>
+	      </li>
+	      <li>dm.<b>runspeed</b>
+	        <ul>
+	          <li><b>Type</b>: <i>Number</i><br>
+                <b>Default Value</b>: 16<br>
+Running speed of the player, in Linear Velocity.</li>
+            </ul>
+	      </li>
+	      <li>dm.<b>jumpspeed</b><span class="aka">previously "djump"</span>
+	        <ul>
+	          <li><b>Type</b>: <i>Number</i><br>
+                <b>Default Value</b>: 10<br>
+Jumping speed of the player, in Linear Velocity.</li></ul>
+	      </li>
+	      <li>dm.<b>movemidair</b>
+	        <ul>
+	          <li><b>Type</b>: <i>Number</i><br>
+                <b>Default Value</b>: 0.01<br>
+Percentage (scale of 0.0 to 1.0) of how much the player can move while in the air.<br>
+0.01 would be 1%</li>
+            </ul>
+	      </li>
+	      <li>dm.<b>fly</b><span class="aka">previously "dfly"</span>
+	        <ul>
+	          <li><b>Type</b>: <i>Boolean</i><br>
+                <b>Default Value</b>: False<br>
+Fly mode. Holding the crouch/sneak key will cause the player to remain in-air.</li>
+            </ul>
+	      </li>
+	      <li>dm.<b>collisionrange</b><span class="aka">previously "drange"</span>
+	        <ul>
+	          <li><b>Type</b>: <i>Number</i><br>
+                <b>Default Value</b>: 2<br>
+Distance of the Ray sensor on the -Z axis. Used for ground detection.<br>
+Measured in Blender Units.</li>
+            </ul>
+	      </li>
+        </ul>
+	  </div>
+	  <p>&nbsp;</p>
+	  <h2><a name="methods" id="methods"></a>Callable Methods <span class="topbutton"><a href="#toc">[top]</a></span></h2>
+	  <p>If you <a href="#import">import the  script</a> and create an instance of the <b>Core</b> class, you will be able to call certain methods from it to modify features of the script. This is a more advanced alternative to using Property Hooks.</p>
+	  <p>In the following methods, use any of the <a href="#properties">Property Hook</a> names as the <i>propertyName</i> parameter (not case sensitive).</p>
+	  <div class="documentation">
+	    <ul>
+	      <li>Core<b>(<i>object</i>)</b>
+	        <ul>
+	          <li>
+	            (<i>Not a method</i>)<br>
+              Creates an instance of the Core class.</li>
+	          <li>
+	            The <i>object</i> parameter requires either a <b>KX_GameObject</b> or a <b>SCA_PythonController</b> object.<br>
+	              The script will automatically retrieve the <b>KX_GameObject</b> if a <b>SCA_PythonController</b> is passed.</li>
+            </ul>
+	      </li>
+	      <li>Core.<b>main()</b>
+	        <ul>
+	          <li>Updates the features of the MouseMove script.<br>
+Call this every frame to keep the script features working.</li></ul>
+	      </li>
+	      <li>Core.<b>newMouselook([<i>object</i>])</b>
+	        <ul>
+	          <li>Creates an instance of the Mouselook feature and adds it to the Core object.<br>
+Returns None 
+	      if the Mouselook feature has already been created.</li></ul>
+	      </li>
+	      <li>Core.<b>newStaticMove([<i>object</i>])</b>
+	        <ul>
+	          <li>Creates an instance of the Static Movement feature and adds it to the Core object. Returns None if the Static Movement feature has already been created.</li>
+	          <li>If <i>object</i> is not specified, the Static movement system will be given the object used to instantiate the Core class. </li>
+            </ul>
+	      </li>
+	      <li>Core.<b>newDynamicMove([<i>object</i>])</b>
+	        <ul>
+	          <li>
+	            Creates an instance of the Dynamic Movement feature and adds it to the Core object.<br>
+	              Returns None if the Dynamic Movement feature has already been created.
+	          </li>
+	          <li>
+	            If <i>object</i> is not specified, the Dynamic movement system will try to use the <b>Parent</b> of the object used to instantiate the Core class. If there is no parent object, the Dynamic Movement system will not run.
+              </li>
+            </ul>
+	      </li>
+	      <li>Core.<b>getProp(<i>propertyName</i>)</b>
+	        <ul>
+	          <li>Returns the value of a property used by the script.<br>
+If the property name is invalid, returns None.</li>
+            </ul>
+	      </li>
+	      <li>Core.<b>setProp(<i>propertyName</i>[, <i>value</i>])</b>
+	        <ul>
+	          <li>Sets the value of a property used by the script. If the property name or the value data type is invalid, does nothing.<br>
+If <i>value</i> is not specified, and the property is a Boolean type, it will be inverted (toggled).</li>
+            </ul>
+	      </li>
+        </ul>
+	  </div>
+	  <p>&nbsp;</p>
+	  <p>&nbsp;</p>
+	  <h2><a name="config"></a>Config Properties (Advanced) <span class="topbutton"><a href="#toc">[top]</a></span></h2>
+	  <p>The Config Properties are a set of default properties used by the MouseMove script. They are contained in the CONFIG string variable near the top of the script. The CONFIG variable gets parsed by the __init__ method of the Core class to extract the default properties and their data types.</p>
+	  <p>The purpose of the Config Properties are to provide default values for the MouseMove script when custom values are either not specified in Property Hooks, or the specified properties are not the right data type (i.e., a string is given instead of the required numeric value). The Config Properties also make it very easy for anyone modifying the script to define and retrieve Property Hook values without having to hard-code in failsafes for dealing with case-sensitivity or invalid values.</p>
+	  <p>The default variables defined in the Config Properties cannot be removed without causing errors. However, new variables can be added by those who wish to modify the MouseMove script.</p>
+	  <p>&nbsp;</p>
+	  <p><b>Property Categories:</b><br>
+      The Config Properties are categorized by which feature of the MouseMove script they belong to. There are four default categories:</p>
+	  <ul>
+	    <li>"<b>mcc</b>" - MouseMove Core</li>
+	    <li>"<b>ml</b>" - Mouselook</li>
+	    <li>"<b>sm</b>" - Static Movement</li>
+	    <li>"<b>dm</b>" - Dynamic Movement</li>
+      </ul>
+	  <p>You may notice that the <a href="#properties">Property Hooks</a> all begin with one of these names listed above. All properties in the CONFIG variable are defined in one of these four categories.</p>
+	  <p>&nbsp;</p>
+	  <p><b>Data Types:</b><br>
+      The Data Types of properties, as mentioned before, "cast" the values to a certain data type. This means that a property casted to a certain data type will only allow Property Hooks of that same data type to override the default value.<br>
+      The data type names used for casting variables in the Config Properties are:</p>
+	  <table width="600" border="0" cellpadding="2" style="margin-left:40px">
+	    <tr>
+	      <th width="75" align="right">bool</th>
+	      <td width="25" align="center">=</td>
+	      <td>Boolean: True, False, or None</td>
+        </tr>
+	    <tr>
+	      <th width="75" align="right">int</th>
+	      <td align="center">=</td>
+	      <td>Integer: -1, 0, 5, 42, etc.</td>
+        </tr>
+	    <tr>
+	      <th width="75" align="right">float</th>
+	      <td align="center">=</td>
+	      <td>Float: 0.05, 3.14, etc.</td>
+        </tr>
+	    <tr>
+	      <th width="75" align="right">num</th>
+	      <td align="center">=</td>
+	      <td>Integer or Float values</td>
+        </tr>
+	    <tr>
+	      <th width="75" align="right">str</th>
+	      <td align="center">=</td>
+	      <td>String: Any text, no quotes needed</td>
+        </tr>
+      </table>
+	  <p>&nbsp;</p>
+	  <p><b>Creating New Properties:</b><br>
+      To create a new property that can be used in the MouseMove script, either pick one of the four pre-existing categories to define it in, or create a new Category and define the property there. The syntax is as follows:</p>
+	  <div class="code">
+categoryName{
+    (dataType) propertyName = value
+}</div>
+	  <p><br>
+      Example from the MouseMove script:</p>
+	  <div class="code">
+CONFIG = """
+ml{
+    (num) sensitivity = 2
+    (bool) invert = false
+    (bool) inherit = true
+    
+    # This is a comment. It is ignored by the parser
+}
+
+"""</div>
+	  <p>&nbsp;</p>
+	  <p><b>Syntax Rules:</b></p>
+	  <ul>
+	    <li>When starting a Category, the left curly bracket { goes on the same line as the Category name.</li>
+	    <li>When ending a Category, the right curly bracket } goes on its own line.</li>
+	    <li>Data Type names are wrapped in parentheses:
+	      <ul>
+	        <li>Boolean type = <em>(bool)</em></li>
+          </ul>
+	    </li>
+	    <li>Each defined property goes on its own line</li>
+	    <li>An equals sign goes between the Property Name and its Value:
+	      <ul>
+	        <li><em>(type) prop = value</em></li>
+          </ul>
+	    </li>
+	    <li>Spaces in Category and Property names are allowed, but these are whitespace-sensitive:
+	      <ul>
+	        <li>"run&nbsp;&nbsp;&nbsp;&nbsp;speed" is not the same as "run speed"</li>
+          </ul>
+	    </li>
+	    <li>Extra spacing between syntax is disregarded:
+	      <ul>
+	        <li><em><b>(type)&nbsp;&nbsp;&nbsp;prop&nbsp; =&nbsp;&nbsp;&nbsp; value</b></em> is the same as <em><b>(type) prop = value</b></em></li>
+	        <li>This does not refer to the spaces in Category or Property names, which are whitespace sensitive.</li>
+          </ul>
+	    </li>
+	    <li>Comments can start on any line, using the <b>#</b> symbol, and are ignored by the parser code</li>
+	    <li>Leaving the Value  field empty will print an error message and not register the property.</li>
+	    <li>Typing a value that doesn't match its casted Data Type will not register the property.</li>
+	    <li>Using an invalid Data Type for casting will print an error message and not register the property.</li>
+	    <li>A Property Hook name is the Category + . + Property Name:
+	      <ul>
+	        <li>category.propName</li>
+          </ul>
+	    </li>
+	    <li>Category and Property names are not case-sensitive</li>
+	    <li>Do <b>Not</b> remove the triple quotes ( """ ) from the CONFIG variable - the script will break!</li>
+	  </ul>
+	  <p>&nbsp;</p>
+	  <p>&nbsp;</p>
+	  <h2><a name="changelog" id="changelog"></a>Changelog <span class="topbutton"><a href="#toc">[top]</a></span></h2>
+	  <h3>Update 2.7</h3>
+      <ul>
+        <li>Renamed from "[FPS] Mouselook + Movement Script" to "MouseMove Script"</li>
+        <li>Rewrote entire script - bugs may be expected</li>
+        <li>New property system: default properties in CONFIG string variable at top of script
+          <ul>
+            <li>The contents of CONFIG get parsed and used to check object properties</li>
+            <li>See <a href="#config">Config Properties</a></li>
+          </ul>
+        </li>
+        <li>All Property Hooks renamed and modified! Check the <a href="#properties">Property Hooks</a> section for complete details.
+          <ul>
+            <li>"enable" -&gt; "mmc.mouselook" (See other <a href="#ml">Mouselook</a> Property Hooks)</li>
+            <li>"cursor" -&gt; "mmc.cursor"</li>
+            <li>"layout" -&gt; "mmc.lefthanded"; (IJKL keyboard layout)</li>
+            <li>"lmove" -&gt; "mmc.static"; (See other <a href="#sm">Static Movement</a> Property Hooks)</li>
+            <li>"dmove" -&gt; "mmc.dynamic"; (See other <a href="#dm">Dynamic Movement</a> Property Hooks)</li>
+          </ul>
+        </li>
+        <li>New Property Hook features:
+          <ul>
+            <li>"mmc.lefthanded"</li>
+            <li>"ml.capupper"</li>
+            <li>"ml.caplower"</li>
+            <li>"ml.caporigin"</li>
+            <li>"sm.cameramode"</li>
+            <li>"dm.runspeed"</li>
+            <li>"dm.movemidair"</li>
+          </ul>
+        </li>
+        <li>New/modified <a href="#methods">Callable Methods</a> (previously known as "callable functions")</li>
+        <li>Improved the Mouselook Cap system. If the object is past the capping range, it will be snapped to the correct orientation, rather than being allowed free rotation outside of the range as before.
+          <ul>
+            <li>See the ml.cap properties in the <a href="#ml">Mouselook Property Hooks</a> for more information.</li>
+          </ul>
+        </li>
+      </ul>
+      <p>&nbsp;</p>
+<h3>Update 2.61:</h3>
+		<ul>
+			<li>Removed dependency on Mouse Movement sensor. Use any sensor to trigger the Mouselook script.
+				<ul>
+					<li>Use an Always sensor with True Level Triggering enabled to run on every frame</li>
+				</ul>
+		  </li>
+			<li>Location Move Controls: Readded E and Q as alternative Fly Up/Down keys (U and O for Layout 2)</li>
+			<li>Added mouselook.setCenter() to the list of callable functions
+				<ul>
+					<li>Sets the mouse cursor to the center of the screen.</li>
+				</ul>
+			</li>
+	  </ul>
+		<p></p>
+		<h3>Update 2.6:</h3>
+		<ul>
+			<li>Cleaned up the code</li>
+			<li>Property Tags no longer case-sensitive</li>
+			<li>Mouselook class in mouselook.py can be instantiated as an object
+				<ul>
+					<li>Run the main() function on the object to update it</li>
+				</ul>
+			</li>
+			<li>Callable functions on the Mouselook class object for changing mouselook properties (Advanced)</li>
+			<li>Location Move Controls: <b>Space</b> = Fly Up; <b>Ctrl</b> = Fly Down; <b>Shift</b> = Speed Up</li>
+			<li>Dynamic Move Controls: <b>Shift</b> = Run; <b>Ctrl</b> = Slow movement</li>
+		</ul>
+        </div>
+	</div>
+	<div id="footer">
+		<p><a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br />
+		<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">MouseMove Script</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Riyuzakisan</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a></p></div>
+</div>
+</body>
+</html>
